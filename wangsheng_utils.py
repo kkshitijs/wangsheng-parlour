@@ -17,6 +17,9 @@ def haversine(lat1, long1, lat2, long2):
     return km
 
 def find_lat_lng(address):
+    '''
+    Code Ref.: https://towardsdatascience.com/geocoding-singapore-coordinates-onemap-api-3e1542bf26f7
+    '''
     req = requests.get('https://developers.onemap.sg/commonapi/search?searchVal='+address+'&returnGeom=Y&getAddrDetails=Y&pageNum=1')
     resultsdict = eval(req.text)
     if len(resultsdict['results'])>0:
